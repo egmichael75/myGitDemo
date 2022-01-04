@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="96ef76cd-995d-450e-a618-cfd357b9e34b" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="autoapiFlow" doc:id="09edafab-0c9d-470e-b95b-abb3603f4c69" >
+		<http:listener doc:name="Listener" doc:id="67128f9b-4126-4221-918b-bbeb63cf9967" config-ref="HTTP_Listener_config" path="/gitcicd"/>
+		<set-payload value="this is for resting git" doc:name="Set Payload" doc:id="0eef82c8-10a9-40be-8184-ae75ec65ebd8" />
+	</flow>
+</mule>
